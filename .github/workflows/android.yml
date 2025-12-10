@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     
     steps:
     - name: Checkout code
@@ -21,16 +22,35 @@ jobs:
         distribution: 'temurin'
         cache: gradle
         
+    - name: Cache Gradle dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+        
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+        
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
       
     - name: Build with Gradle
-      run: ./gradlew assembleDebug --no-daemon --console=plain
+      run: |
+        ./gradlew assembleDebug \
+          --no-daemon \
+          --console=plain \
+          --build-cache \
+          --parallel
       env:
-        GRADLE_OPTS: -Xmx2g -XX:MaxMetaspaceSize=512m
+        GRADLE_OPTS: -Xmx4g -XX:MaxMetaspaceSize=1g -XX:+UseG1GC
+        ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug-apk
-        path: app/build/outputs/apk/debug/app-debug-apk
+        path: app/build/outputs/apk/**/*.apk
