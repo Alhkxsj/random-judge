@@ -14,12 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Use the maximum available heap for the Gradle daemon
-export GRADLE_OPTS="-Xmx4g -XX:MaxMetaspaceSize=512m"
+# Use a more conservative heap setting for CI environments
+export GRADLE_OPTS="-Xmx2g -XX:MaxMetaspaceSize=512m"
 
 # If Gradle is not installed globally, use the Gradle Wrapper
 if [ -x ./gradlew ]; then
-    ./gradlew "$@"
+    exec ./gradlew "$@"
 else
     echo "Gradle wrapper not found. Please run this script from the project root directory."
     exit 1
