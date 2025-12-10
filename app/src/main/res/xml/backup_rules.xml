@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude specific shared preferences that contain app keys or passwords -->
+    <!-- <exclude
+        domain="sharedpref"
+        path="preferences_with_keys.xml" /> -->
+</full-backup-content>

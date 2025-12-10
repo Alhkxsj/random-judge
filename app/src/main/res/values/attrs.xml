@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom attributes for the app -->
+    <declare-styleable name="DecisionView">
+        <attr name="decisionText" format="string" />
+        <attr name="decisionType" format="enum">
+            <enum name="yes_no" value="0" />
+            <enum name="agree_disagree" value="1" />
+            <enum name="win_lose" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.settings.SettingsFragment">
+
+        <TextView
+            android:id="@+id/tv_settings_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="24sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Background Mode RadioGroup -->
+        <TextView
+            android:id="@+id/tv_background_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="背景模式"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_settings_title" />
+
+        <RadioGroup
+            android:id="@+id/rg_background_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_background_mode">
+
+            <RadioButton
+                android:id="@+id/rb_system"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="系统主题" />
+
+            <RadioButton
+                android:id="@+id/rb_custom_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义图片" />
+
+            <RadioButton
+                android:id="@+id/rb_solid_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="纯色背景" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="选择图片"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/rg_background_mode"
+            app:layout_constraintTop_toBottomOf="@+id/rg_background_mode" />
+
+        <!-- Decision Type Spinner -->
+        <TextView
+            android:id="@+id/tv_decision_type_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="决策类型"
+            app:layout_constraintStart_toStartOf="@+id/rg_background_mode"
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_image" />
+
+        <Spinner
+            android:id="@+id/sp_decision_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/rg_background_mode"
+            app:layout_constraintStart_toStartOf="@+id/rg_background_mode"
+            app:layout_constraintTop_toBottomOf="@+id/tv_decision_type_label" />
+
+        <!-- Animation and Sound Switches -->
+        <Switch
+            android:id="@+id/switch_animation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="启用动画"
+            app:layout_constraintEnd_toEndOf="@+id/sp_decision_type"
+            app:layout_constraintStart_toStartOf="@+id/sp_decision_type"
+            app:layout_constraintTop_toBottomOf="@+id/sp_decision_type" />
+
+        <Switch
+            android:id="@+id/switch_sound"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="启用声音"
+            app:layout_constraintEnd_toEndOf="@+id/switch_animation"
+            app:layout_constraintStart_toStartOf="@+id/switch_animation"
+            app:layout_constraintTop_toBottomOf="@+id/switch_animation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

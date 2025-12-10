@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">随机判断</string>
+    <string name="title_main">随机判断</string>
+    <string name="title_settings">设置</string>
+    <string name="title_about">关于</string>
+    <string name="btn_generate">生成判断</string>
+    <string name="btn_menu">菜单</string>
+    <string name="btn_settings">设置</string>
+    <string name="btn_about">关于</string>
+    <string name="tv_result">结果</string>
+    <string name="tv_background">背景</string>
+    <string name="hint_question">输入您的问题（可选）</string>
+    <string name="label_background_mode">背景模式</string>
+    <string name="label_decision_type">决策类型</string>
+    <string name="option_system">系统主题</string>
+    <string name="option_custom_image">自定义图片</string>
+    <string name="option_solid_color">纯色背景</string>
+    <string name="btn_select_image">选择图片</string>
+    <string name="switch_animation">启用动画</string>
+    <string name="switch_sound">启用声音</string>
+    <string name="decision_type_yes_no">是/否</string>
+    <string name="decision_type_agree_disagree">同意/拒绝</string>
+    <string name="decision_type_win_lose">赢/输</string>
+    <string name="decision_type_true_false">真/假</string>
+</resources>
