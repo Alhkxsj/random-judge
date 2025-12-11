@@ -4,3 +4,12 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
     id 'com.google.dagger.hilt.android' version '2.44' apply false
 }
+allprojects {
+    repositories {
+        // 优先国内加速镜像
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        mavenCentral()
+        google()
+    }
+}
